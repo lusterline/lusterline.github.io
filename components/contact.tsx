@@ -36,7 +36,7 @@ export function Contact() {
             </CardHeader>
             <CardContent className="flex flex-col items-center space-y-2 text-center">
               <Button variant="link" className="h-auto p-0 text-base md:text-lg" asChild>
-                <a target="_blank" rel="noopener noreferrer" href="mailto:info@lusterline.com">info@lusterline.com</a>
+                <a target="_blank" rel="noopener noreferrer" href="mailto:lusterline01@gmail.com">lusterline01@gmail.com</a>
               </Button>
             </CardContent>
           </Card>
