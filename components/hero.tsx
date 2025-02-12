@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
@@ -42,6 +42,18 @@ export function Hero() {
         video.removeEventListener('loadeddata', handleLoadedData)
         video.removeEventListener('error', handleVideoError)
       }
+    }
+  }, [])
+
+  const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const element = document.querySelector(href)
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset
+      window.scrollTo({
+        top: offsetTop - 80, // Additional offset to account for header height
+        behavior: "smooth",
+      })
     }
   }, [])
 
@@ -87,7 +99,7 @@ export function Hero() {
         </div>
         <div className="animate-fade-up animation-delay-300">
           <Button size="lg" className="px-8 py-6 text-lg">
-            <a href="#contact">Book Now</a>
+            <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Book Now</a>
           </Button>
         </div>
       </div>
